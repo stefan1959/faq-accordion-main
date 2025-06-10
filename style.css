@@ -1,0 +1,108 @@
+:root {
+  /* ## Colors */
+  interpolate-size: allow-keywords;
+  --white: 0 100% 100%;
+  --purple-100: 275 100% 97%;
+  --purple-600: 292 16% 49%;
+  --purple-950: 292 42% 14%;
+}
+@font-face {
+  font-family: "Work Sans";
+  src: url(/assets/fonts/WorkSans-VariableFont_wght.ttf);
+}
+body {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  color: hsl(var(--purple-600));
+  background-image: url(/assets/images/background-pattern-mobile.svg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: contain;
+  padding: 0 1.5rem;
+  background-color: hsl(var(--purple-100));
+}
+.faq-accordion {
+  display: grid;
+  background: white;
+  max-width: 375px;
+  border-radius: 8px;
+  padding: 1.8rem;
+  gap: 1rem;
+}
+.faq-title {
+  position: relative;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: hsl(var(--purple-950));
+  padding-left: 60px;
+}
+.faq-title::before {
+  content: "";
+  background-image: url(/assets/images/icon-star.svg);
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 0;
+  top: 20%;
+}
+
+.faq-item {
+  display: grid;
+  gap: 0.5rem;
+  border-bottom: 1px solid hsl(var(--purple-100));
+}
+.faq-item::details-content {
+  opacity: 0;
+  block-size: 0;
+  transition: block-size 0.3s ease-in-out, opacity 0.3s ease-in-out,
+    content-visibility 0.3s ease-in-out;
+  transition-behavior: allow-discrete;
+}
+.faq-item[open]::details-content {
+  opacity: 1;
+  block-size: auto;
+}
+.faq-question {
+  position: relative;
+  font-weight: 700;
+  color: hsl(var(--purple-950));
+  cursor: pointer;
+  padding-right: 1.6rem;
+  transition: 1s ease-in-out;
+}
+summary::marker {
+  content: "" /* no marker */;
+}
+.faq-question::after {
+  content: "";
+  position: absolute;
+  background-image: url(/assets/images/icon-plus.svg);
+  width: 30px;
+  height: 30px;
+  right: 24px;
+  top: 50%;
+  transform: translate(100%, -50%);
+}
+.faq-question[aria-expanded="true"]::after {
+  background-image: url(/assets/images/icon-minus.svg);
+}
+@media screen and (min-width: 650px) {
+  body {
+    background-image: url(/assets/images/background-pattern-desktop.svg);
+  }
+}
+
+/* Attribution styles */
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
