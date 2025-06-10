@@ -27,7 +27,8 @@ body {
 }
 .faq-accordion {
   display: grid;
-  background: white;
+  background: hsl(var(--white));
+  box-shadow: 0 0 30px hsl(var(--purple-950) / 0.2);
   max-width: 375px;
   border-radius: 8px;
   padding: 1.8rem;
@@ -54,11 +55,12 @@ body {
 .faq-item {
   display: grid;
   gap: 0.5rem;
-  border-bottom: 1px solid hsl(var(--purple-100));
+  padding-block: 1rem;
+  border-bottom: 1px solid hsl(var(--purple-600) / 0.2);
 }
 .faq-item::details-content {
   opacity: 0;
-  block-size: 0;
+  /* padding-block: 1rem; */
   transition: block-size 0.3s ease-in-out, opacity 0.3s ease-in-out,
     content-visibility 0.3s ease-in-out;
   transition-behavior: allow-discrete;
@@ -94,6 +96,10 @@ summary::marker {
 @media screen and (min-width: 650px) {
   body {
     background-image: url(/assets/images/background-pattern-desktop.svg);
+  }
+  .faq-accordion {
+    padding: 2.5rem;
+    max-width: 600px;
   }
 }
 
